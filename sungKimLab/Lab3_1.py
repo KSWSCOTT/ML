@@ -1,4 +1,7 @@
+#   Hypothesis에 의한 Predict 값이 변함에 따라 Cost가 어떻게 변화하는가에 대해 알아보기 위한 실험
+
 import tensorflow as tf
+#   Use matplotlib to draw a graph
 import matplotlib.pyplot as plt
 
 X = [1, 2, 3]

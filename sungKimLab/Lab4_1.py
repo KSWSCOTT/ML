@@ -1,6 +1,8 @@
-import tensorflow as tf
+#   다변수 linear regression
 #   Multi-variable linear regression
+import tensorflow as tf
 
+#   Input X weight + bias = output 형태로 나오기 때문에 배열의 shape을 정하기 쉽다.
 #   5x3 input matrix
 #   3x1 weight matrix
 #   5x1 output matrix
@@ -33,5 +35,6 @@ sess.run(tf.global_variables_initializer())
 
 for step in range(2001):
     cost_val, hy_val, _ = sess.run([cost, hypothesis, train], feed_dict={X1: x1_data, X2: x2_data, X3: x3_data, Y: y_data})
+    #   10번의 수행마다 cost와 hypothesis을 print함
     if step % 10 == 0:
         print ("Step: ", step, ", Cost: ", cost_val, '\nPrediction: ', hy_val)

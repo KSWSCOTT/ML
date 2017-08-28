@@ -5,9 +5,15 @@ import tensorflow as tf
 #   cost function -->   Average of square difference between hypothesis and y value (in Lab2)
 #                       In machine learning, we should reduce value of cost function
 
+#   가설과 코스트 함수
+#   가설 --> 입력 데이터로부터 결과값을 예측하기 위한 것
+#   코스트 함수 --> 가설과 결과값의 차의 제곱의 평균 (Lab2에서)
+#                   기계학습에서는 학습을 통해 줄이고자 하는 값, 학습이 잘 되었는지 알아볼 수 있는 값
+
 #   Nodes: x_train, y_train, hypothesis, cost, train
 
 #   X, Y data
+#   Placeholder을 사용할 것이기 때문에 x, y 데이터를 미리 배열로 정의해 둔다.
 x_train = [1, 2, 3]
 y_train = [1, 2, 3]
 
@@ -33,6 +39,7 @@ train = optimizer.minimize(cost)
 
 sess = tf.Session()
 #   We have to initialize variables before use (if we declare tf.Variable, now it's W and b)
+#   변수(Variable) 형태의 변수를 쓰는 경우 세션을 시작하고 항상 변수를 초기화해 주는 작업을 수행하여야 한다.
 sess.run(tf.global_variables_initializer())
 
 for step in range(2001):
