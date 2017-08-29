@@ -20,9 +20,11 @@ accuracy = tf.reduce_mean(tf.cast(tf.equal(predicted, Y), dtype=tf.float32))
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
-    for i in range(2001):
+    for i in range(10001):
         cost_val, w_val, _ = sess.run([cost, W, train], feed_dict={X: x_data, Y: y_data})
-        if i % 20 == 0:
+        if i % 100 == 0:
             print ("Step: ", i, ", Cost: ", cost_val, "\nWeight: ", w_val)
     h, c, a = sess.run([hypothesis, predicted, accuracy], feed_dict={X: x_data, Y: y_data})
     print ("Hypothesis: ", h, "\nCost: ", c, "\nAccuracy: ", a)
+
+#   XOR can't solved by single perceptron

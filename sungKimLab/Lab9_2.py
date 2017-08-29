@@ -28,7 +28,7 @@ with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
     for i in range(10001):
         cost_val, w1_val, w2_val, _ = sess.run([cost, W1, W2, train], feed_dict={X: x_data, Y: y_data})
-        # if i % 20 == 0:
-        #     print ("Step: ", i, ", Cost: ", cost_val, "\nWeight1: ", w1_val, "\nWeight2: ", w2_val)
+        if i % 100 == 0:
+            print ("Step: ", i, ", Cost: ", cost_val, "\nWeight1: ", w1_val, "\nWeight2: ", w2_val)
     h, c, a = sess.run([hypothesis, predicted, accuracy], feed_dict={X: x_data, Y: y_data})
     print ("Hypothesis: ", h, "\nCost: ", c, "\nAccuracy: ", a)
